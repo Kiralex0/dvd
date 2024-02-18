@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.math.BigDecimal;
 import java.security.Timestamp;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,6 +32,6 @@ public class Payment {
     @Column(name = "amount", nullable = false)
     private BigDecimal amount;
 
-    @Column(name = "payment_date", nullable = false)
-    private Timestamp paymentDate;
+    @Column(name = "payment_date")
+    private LocalDate paymentDate;
 }

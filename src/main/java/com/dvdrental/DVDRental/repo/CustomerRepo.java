@@ -42,6 +42,19 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
 //            " active from public.customer where customer.first_name like(:name)", nativeQuery = true)
 //    List<Customer> getCustomersByFirstName(@Param("name") String firstName);
 
+//    @Query(value = "select" +
+//            " customer_id as customerId," +
+//            " store_id as storeId," +
+//            " first_name as firstName," +
+//            " last_name as lastName," +
+//            " email as email," +
+//            " address_id as addressId," +
+//            " activebool as activeBool," +
+//            " create_date as createDate," +
+//            " last_update as lastUpdate," +
+//            " active as active from public.customer where customer.first_name like(:name)", nativeQuery = true)
+//    List<Customer> getCustomersByFirstName(@Param("name") String firstName);
+
     @Query(value = "select" +
             " customer_id as customerId," +
             " store_id as storeId," +
@@ -54,4 +67,6 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
             " last_update as lastUpdate," +
             " active as active from public.customer where customer.first_name like(:name)", nativeQuery = true)
     List<Customer> getCustomersByFirstName(@Param("name") String firstName);
+
+//    предложил чат GPT до этого был верхний запрос
 }

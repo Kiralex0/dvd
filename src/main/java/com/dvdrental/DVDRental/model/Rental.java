@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.security.Timestamp;
+import java.time.LocalDate;
 
 
 @AllArgsConstructor
@@ -19,8 +20,8 @@ public class Rental {
     @Column(name = "rental_id")
     private Integer rentalId;
 
-    @Column(name = "rental_date", nullable = false)
-    private Timestamp rentalDate;
+    @Column(name = "rental_date")
+    private LocalDate rentalDate;
 
     @Column(name = "inventory_id", nullable = false)
     private Integer inventoryId;
@@ -29,12 +30,12 @@ public class Rental {
     private Integer customerId;
 
     @Column(name = "return_date")
-    private Timestamp returnDate;
+    private LocalDate returnDate;
 
     @Column(name = "staff_id", nullable = false)
     private Integer staffId;
 
-    @Column(name = "last_update", nullable = false, columnDefinition = "timestamp default now()")
+    @Column(name = "last_update", columnDefinition = "timestamp")
     private Timestamp lastUpdate;
 
     @ManyToOne(fetch = FetchType.LAZY)

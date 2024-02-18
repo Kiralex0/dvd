@@ -22,7 +22,7 @@ public class Language {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "last_update", nullable = false, columnDefinition = "timestamp default now()")
+    @Column(name = "last_update", columnDefinition = "timestamp")
     private Timestamp lastUpdate;
 
 }

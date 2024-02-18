@@ -8,8 +8,10 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-    @NoArgsConstructor
+@NoArgsConstructor
     @AllArgsConstructor
     @Getter
     @Setter
@@ -34,28 +36,78 @@ import java.sql.Timestamp;
         @Column(name = "language_id", nullable = false)
         private Integer languageId;
 
-        @Column(name = "rental_duration", nullable = false, columnDefinition = "int2 default 3")
+        @Column(name = "rental_duration", columnDefinition = "int2")
         private Integer rentalDuration;
 
-        @Column(name = "rental_rate", nullable = false, columnDefinition = "numeric(4, 2) default 4.99")
+        @Column(name = "rental_rate", columnDefinition = "numeric")
         private BigDecimal rentalRate;
 
         @Column(name = "length")
         private Integer length;
 
-        @Column(name = "replacement_cost", nullable = false, columnDefinition = "numeric(5, 2) default 19.99")
+        @Column(name = "replacement_cost", columnDefinition = "numeric")
         private BigDecimal replacementCost;
 
         @Column(name = "rating", columnDefinition = "mpaa_rating default 'G'")
         private String rating;
 
-        @Column(name = "last_update", nullable = false, columnDefinition = "timestamp default now()")
+        @Column(name = "last_update", columnDefinition="timestamp default current_timestamp")
         private Timestamp lastUpdate;
 
         @Column(name = "special_features")
         private String[] specialFeatures;
 
-        @Column(name = "fulltext", nullable = false)
+        @Column(name = "fulltext", columnDefinition = "tsvector")
         private String fulltext;
 
     }
+
+
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Getter
+//@Setter
+//@Entity
+//@Table(name = "film")
+//public class Film {
+//
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "film_id")
+//    private Integer filmId;
+//
+//    @Column(name = "title", nullable = false)
+//    private String title;
+//
+//    @Column(name = "description")
+//    private String description;
+//
+//    @Column(name = "release_year")
+//    private Integer releaseYear;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "language_id", referencedColumnName = "language_id", nullable = false)
+//    private Language language;
+//
+//    @Column(name = "rental_duration", nullable = false)
+//    private Integer rentalDuration;
+//
+//    @Column(name = "rental_rate", nullable = false)
+//    private BigDecimal rentalRate;
+//
+//    @Column(name = "length")
+//    private Integer length;
+//
+//    @Column(name = "replacement_cost", nullable = false)
+//    private BigDecimal replacementCost;
+//
+//    @Column(name = "last_update")
+//    private LocalDateTime lastUpdate;
+//
+//    @Column(name = "special_features")
+//    private String[] specialFeatures;
+//
+//    @Column(name = "fulltext", nullable = false, columnDefinition = "tsvector")
+//    private String fulltext;
+//
+//}
