@@ -5,5 +5,6 @@ import com.dvdrental.DVDRental.model.Film;
 import java.util.List;
 
 public interface FilmService {
-    List<Film> getFilm(String title);
+    List<Film> getFilms(String orderColumn, String orderDirection);
+    Film getFilm(String title);
 }

@@ -1,12 +1,14 @@
 package com.dvdrental.DVDRental.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
@@ -16,11 +18,17 @@ import java.time.LocalDate;
 @Getter
 @Entity
 @Table(name = "customer", schema = "public")
-public class Customer {
+public class Customer implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
     private Integer customerId;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id", referencedColumnName = "address_id", insertable = false, updatable = false)
+    private Address address;
 
     @Column(name = "store_id", nullable = false)
     private Integer storeId;
@@ -49,7 +57,4 @@ public class Customer {
     @Column(name = "active")
     private Integer active;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "address_id", referencedColumnName = "address_id", insertable = false, updatable = false)
-    private Address address;
 }
